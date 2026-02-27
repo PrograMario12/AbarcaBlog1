@@ -1,0 +1,64 @@
+﻿
+> temp-app@0.1.0 build
+> next build
+
+  Ôû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Ô£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : 
+En línea: 1 Carácter: 1
++ & "C:\Program 
+Files\nodejs/node.exe" "C:\Use
+rs\PC\AppData\Roaming\npm ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : 
+    NotSpecified: (:String)   
+  [], RemoteException
+    + FullyQualifiedErrorId : 
+    NativeCommandError
+ 
+Failed to compile.
+
+./src/app/projects/page.tsx
+1:8  Error: 'Link' is defined 
+but never used.  @typescript-e
+slint/no-unused-vars
+2:10  Error: 'Button' is 
+defined but never used.  @type
+script-eslint/no-unused-vars
+52:29  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, 
+`&rsquo;`.  
+react/no-unescaped-entities
+
+./src/components/footer.tsx
+1:8  Error: 'Link' is defined 
+but never used.  @typescript-e
+slint/no-unused-vars
+
+./src/components/navbar.tsx
+6:10  Error: 'Terminal' is 
+defined but never used.  @type
+script-eslint/no-unused-vars
+6:20  Error: 'Lightbulb' is 
+defined but never used.  @type
+script-eslint/no-unused-vars
+7:10  Error: 'motion' is 
+defined but never used.  @type
+script-eslint/no-unused-vars
+
+./src/lib/mdx.ts
+62:14  Error: 'err' is 
+defined but never used.  @type
+script-eslint/no-unused-vars
+
+info  - Need to disable some 
+ESLint rules? Learn more 
+here: https://nextjs.org/docs/
+basic-features/eslint#disablin
+g-rules

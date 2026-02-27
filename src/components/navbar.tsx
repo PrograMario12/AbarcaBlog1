@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle"; // Assuming this exists or will be created/replaced
 
 export function Navbar() {
   return (

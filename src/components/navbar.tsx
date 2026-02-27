@@ -1,52 +1,34 @@
-"use client"
-
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { Hexagon } from "lucide-react"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle"; // Assuming this exists or will be created/replaced
 
 export function Navbar() {
-    const pathname = usePathname()
+  return (
+    <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
+      <div className="container flex h-16 items-center justify-between px-4">
+        <div className="flex items-center gap-2">
+            <Link href="/" className="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span className="text-[#002D72] dark:text-[#FFD23F]">Mario Adair</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#FFD23F] text-[#002D72] font-semibold hidden sm:inline-block">AI Engineer</span>
+            </Link>
+        </div>
 
-    return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-background/40">
-            <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                <Link href="/" className="flex items-center space-x-2 text-primary font-bold">
-                    <Hexagon className="w-6 h-6 text-blue-500" />
-                    <span className="font-mono tracking-tight text-lg">
-                        AI_Engineer<span className="text-blue-500 animate-pulse">_</span>
-                    </span>
-                </Link>
-                <nav className="flex items-center gap-6 text-sm font-medium">
-                    <Link
-                        href="/"
-                        className={cn(
-                            "transition-colors hover:text-foreground/80",
-                            pathname === "/" ? "text-foreground" : "text-foreground/60"
-                        )}
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        href="/projects"
-                        className={cn(
-                            "transition-colors hover:text-foreground/80",
-                            pathname?.startsWith("/projects") ? "text-foreground" : "text-foreground/60"
-                        )}
-                    >
-                        Projects
-                    </Link>
-                    <Link
-                        href="/blog"
-                        className={cn(
-                            "transition-colors hover:text-foreground/80",
-                            pathname?.startsWith("/blog") ? "text-foreground" : "text-foreground/60"
-                        )}
-                    >
-                        Blog
-                    </Link>
-                </nav>
-            </div>
-        </header>
-    )
+        <nav className="flex items-center gap-6">
+          <Link href="/#projects" className="text-sm font-medium hover:text-[#002D72] dark:hover:text-[#FFD23F] transition-colors">
+            Proyectos
+          </Link>
+          <Link href="/blog" className="text-sm font-medium hover:text-[#002D72] dark:hover:text-[#FFD23F] transition-colors">
+            Blog
+          </Link>
+          <Link href="/about" className="text-sm font-medium hover:text-[#002D72] dark:hover:text-[#FFD23F] transition-colors">
+            Sobre Mí
+          </Link>
+          {/* Theme Toggle Placeholder - In a real app, use the ThemeProvider hook */}
+           <div className="w-9 h-9 bg-muted rounded-full flex items-center justify-center">
+             🌙
+           </div>
+        </nav>
+      </div>
+    </header>
+  );
 }

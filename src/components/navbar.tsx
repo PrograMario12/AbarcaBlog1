@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function Navbar() {
   return (
@@ -21,10 +22,7 @@ export function Navbar() {
           <Link href="/about" className="text-sm font-medium hover:text-[#002D72] dark:hover:text-[#FFD23F] transition-colors">
             Sobre Mí
           </Link>
-          {/* Theme Toggle Placeholder - In a real app, use the ThemeProvider hook */}
-           <div className="w-9 h-9 bg-muted rounded-full flex items-center justify-center">
-             🌙
-           </div>
+          <ModeToggle />
         </nav>
       </div>
     </header>

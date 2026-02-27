@@ -48,30 +48,30 @@ export function Hero() {
               🇲🇽 Guerrero → Querétaro
             </Badge>
 
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white drop-shadow-lg">
+            <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-lg">
               Mario Adair <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD23F] to-[#FFE680]">
                 Software Engineer
               </span>
             </h1>
 
-            <p className="max-w-[42rem] text-lg text-gray-200 sm:text-xl sm:leading-8 font-light">
+            <p className="max-w-[42rem] text-xl text-gray-200 sm:text-2xl sm:leading-8 font-light">
               Ingeniero Software UAQ → Maestría IA
             </p>
 
-            <p className="max-w-[42rem] text-base text-gray-300 sm:text-lg">
+            <p className="max-w-[42rem] text-lg text-gray-300">
                Transformando ideas en realidad con <span className="font-bold text-[#FFD23F]">IA</span> y <span className="font-bold text-[#FFD23F]">Código Mexicano</span>.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
-              <Link href="#projects" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto rounded-full bg-[#FFD23F] text-[#002D72] hover:bg-[#ffe066] font-bold text-lg px-8">
+            <div className="flex gap-4 mt-8">
+              <Link href="#projects">
+                <Button size="lg" className="rounded-full bg-[#FFD23F] text-[#002D72] hover:bg-[#ffe066] font-bold text-lg px-8">
                   Ver Proyectos
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://github.com/tu-usuario" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full border-[#FFD23F] text-[#FFD23F] hover:bg-[#FFD23F] hover:text-[#002D72] font-bold text-lg px-8">
+              <Link href="https://github.com/tu-usuario" target="_blank" rel="noreferrer">
+                <Button variant="outline" size="lg" className="rounded-full border-[#FFD23F] text-[#FFD23F] hover:bg-[#FFD23F] hover:text-[#002D72] font-bold text-lg px-8">
                   <Github className="mr-2 h-5 w-5" />
                   GitHub
                 </Button>

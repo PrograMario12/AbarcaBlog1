@@ -5,14 +5,14 @@ import { TerminalSquare, BrainCircuit, Cpu, Database, Server, Code, LucideIcon }
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
 
-interface TechItem {
+interface TechStackItem {
   name: string;
   type: string;
   icon: LucideIcon;
   easterEgg?: boolean;
 }
 
-const techStack: TechItem[] = [
+const techStack: TechStackItem[] = [
   { name: "PyTorch", type: "AI/ML", icon: BrainCircuit },
   { name: "TensorFlow", type: "AI/ML", icon: Cpu },
   { name: "LangChain", type: "Agents", icon: Database },
@@ -49,14 +49,7 @@ export function TechStack() {
   );
 }
 
-interface TechItem {
-  name: string;
-  type: string;
-  icon: React.ElementType;
-  easterEgg?: boolean;
-}
-
-function TechCard({ tech }: { tech: TechItem }) {
+function TechCard({ tech }: { tech: TechStackItem }) {
     const [hovered, setHovered] = useState(false);
 
     return (

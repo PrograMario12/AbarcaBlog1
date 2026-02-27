@@ -5,21 +5,18 @@ import Link from "next/link"
 import { ArrowLeft, CalendarDays } from "lucide-react"
 
 export async function generateStaticParams() {
-    const posts = await getBlogPosts()
+    const posts = getBlogPosts()
     return posts.map((post) => ({
         slug: post.meta.slug,
     }))
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = await getPostBySlug(params.slug)
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+    const post = getPostBySlug(params.slug)
 
     if (!post) {
         notFound()
     }
-
-    // Ensure content is a string
-    const content = post.content || '';
 
     return (
         <article className="container px-4 md:px-6 py-12 md:py-24 max-w-3xl mx-auto">
@@ -48,7 +45,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         prose-a:text-blue-500 hover:prose-a:text-blue-400 
         prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:rounded
         prose-pre:bg-muted prose-pre:border prose-pre:border-border">
-                <MDXRemote source={content} />
+                <MDXRemote source={post.content} />
             </div>
         </article>
     )

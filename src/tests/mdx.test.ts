@@ -44,7 +44,7 @@ describe("getBlogPosts", () => {
     vi.mocked(path.join).mockImplementation((...args: string[]) =>
       args.join("/"),
     );
-    // @ts-ignore - readdirSync overload mismatch in Vitest mock
+    // @ts-expect-error - readdirSync overload mismatch in Vitest mock
     vi.mocked(fs.readdirSync).mockReturnValue([
       "post1.mdx",
       "post2.mdx",

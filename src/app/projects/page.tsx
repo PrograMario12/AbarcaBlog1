@@ -1,46 +1,10 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Github, Globe, ExternalLink } from "lucide-react"
+import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
-    const projects = [
-        {
-            title: "Autonomous Agent Swarm",
-            description: "A multi-agent system built to research, summarize, and write code automatically. Utilizes parallel processing and robust prompt chaining to accomplish complex tasks.",
-            tags: ["Python", "LangChain", "OpenAI", "Celery"],
-            github: "https://github.com",
-        },
-        {
-            title: "RAG Document Engine",
-            description: "Retrieval-Augmented Generation system for querying massive internal knowledge bases. Features sub-second latency and semantic caching.",
-            tags: ["Next.js", "Weaviate", "FastAPI", "React"],
-            github: "https://github.com",
-        },
-        {
-            title: "Semantic Code Search",
-            description: "AI-powered tool that understands code semantics to find snippets via natural language, trained on a fine-tuned CodeBERT model.",
-            tags: ["PyTorch", "Transformers", "React"],
-            github: "https://github.com",
-        },
-        {
-            title: "Vision-Language Processor",
-            description: "Multimodal application capable of analyzing images and providing detailed technical metadata and captioning for accessibility.",
-            tags: ["LLaVA", "Gradio", "Docker"],
-            github: "https://github.com",
-        },
-        {
-            title: "Trading Bot Simulation",
-            description: "Reinforcement learning agent optimized to identify high-frequency trading patterns on crypto exchanges.",
-            tags: ["Stable Baselines3", "Gymnasium", "Pandas"],
-            github: "https://github.com",
-        },
-        {
-            title: "Personal AI Assistant UI",
-            description: "Sleek chatbot interface featuring real-time streaming, chat history, and markdown rendering. Built purely with standard React and Tailwind.",
-            tags: ["TypeScript", "Tailwind CSS", "Vercel AI SDK"],
-            github: "https://github.com",
-        }
-    ]
+    const displayedProjects = projects.filter(p => p.showInProjects);
 
     return (
         <div className="container px-4 md:px-6 py-12 md:py-24">
@@ -52,7 +16,7 @@ export default function ProjectsPage() {
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {projects.map((project, i) => (
+                {displayedProjects.map((project, i) => (
                     <Card key={i} className="flex flex-col overflow-hidden transition-all hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 bg-card/60 backdrop-blur-md">
                         <CardHeader>
                             <CardTitle className="flex justify-between items-start">

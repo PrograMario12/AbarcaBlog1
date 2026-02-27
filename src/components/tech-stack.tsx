@@ -49,6 +49,13 @@ export function TechStack() {
   );
 }
 
+interface TechItem {
+  name: string;
+  type: string;
+  icon: React.ElementType;
+  easterEgg?: boolean;
+}
+
 function TechCard({ tech }: { tech: TechItem }) {
     const [hovered, setHovered] = useState(false);
 

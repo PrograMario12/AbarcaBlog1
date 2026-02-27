@@ -76,7 +76,11 @@ export function getBlogPosts(): BlogPost[] {
                 // content is omitted/undefined here for performance
             }
         })
-        .sort((a, b) => (new Date(a.meta.date) < new Date(b.meta.date) ? 1 : -1))
+        .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
+        .map((post) => {
+            const { timestamp, ...rest } = post
+            return rest
+        })
 
     return posts
 }

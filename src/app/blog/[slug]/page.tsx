@@ -5,14 +5,14 @@ import Link from "next/link"
 import { ArrowLeft, CalendarDays } from "lucide-react"
 
 export async function generateStaticParams() {
-    const posts = getBlogPosts()
+    const posts = await getBlogPosts()
     return posts.map((post) => ({
         slug: post.meta.slug,
     }))
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+    const post = await getPostBySlug(params.slug)
 
     if (!post) {
         notFound()

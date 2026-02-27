@@ -1,4 +1,5 @@
-import fs from 'fs'
+import fs from 'fs/promises'
+import { existsSync } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
@@ -82,13 +83,13 @@ export function getBlogPosts(): BlogPost[] {
             return rest
         })
 
-    return posts
+    return posts.sort((a, b) => (new Date(a.meta.date) < new Date(b.meta.date) ? 1 : -1))
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     try {
         const fullPath = path.join(blogsPath, `${slug}.mdx`)
-        const fileContents = fs.readFileSync(fullPath, 'utf8')
+        const fileContents = await fs.readFile(fullPath, 'utf8')
         const { data, content } = matter(fileContents)
 
         return {

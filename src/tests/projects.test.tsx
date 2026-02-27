@@ -4,7 +4,7 @@ import { Projects } from '@/components/projects'
 // Mock framer-motion to avoid animation issues in tests
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    div: ({ children, ...props }: { children: React.ReactNode }) => <div {...props}>{children}</div>,
   },
 }))
 

@@ -62,7 +62,7 @@ export function Projects() {
           Una selección de trabajos reales y experimentales.
         </p>
       </div>
-      <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-5xl gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (
           <motion.div
             key={i}

@@ -1,11 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TerminalSquare, BrainCircuit, Cpu, Database, Server, Code } from "lucide-react";
+import { TerminalSquare, BrainCircuit, Cpu, Database, Server, Code, LucideIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
 
-const techStack = [
+interface TechStackItem {
+  name: string;
+  type: string;
+  icon: LucideIcon;
+  easterEgg?: boolean;
+}
+
+const techStack: TechStackItem[] = [
   { name: "PyTorch", type: "AI/ML", icon: BrainCircuit },
   { name: "TensorFlow", type: "AI/ML", icon: Cpu },
   { name: "LangChain", type: "Agents", icon: Database },
@@ -42,14 +49,7 @@ export function TechStack() {
   );
 }
 
-interface TechItem {
-  name: string;
-  type: string;
-  icon: React.ElementType;
-  easterEgg?: boolean;
-}
-
-function TechCard({ tech }: { tech: TechItem }) {
+function TechCard({ tech }: { tech: TechStackItem }) {
     const [hovered, setHovered] = useState(false);
 
     return (

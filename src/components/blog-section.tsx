@@ -3,8 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { getBlogPosts } from "@/lib/mdx";
 
 export async function BlogSection() {
-  const allPosts = await getBlogPosts();
-  const posts = allPosts.slice(0, 3); // Get latest 3 posts
+  const posts = getBlogPosts().slice(0, 3); // Get latest 3 posts
 
   return (
     <section className="container py-20 px-4 md:px-6 bg-muted/30">

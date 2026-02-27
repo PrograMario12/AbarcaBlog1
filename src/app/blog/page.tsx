@@ -2,8 +2,8 @@ import Link from "next/link"
 import { getBlogPosts } from "@/lib/mdx"
 import { ArrowRight, CalendarDays } from "lucide-react"
 
-export default function BlogPage() {
-    const posts = getBlogPosts()
+export default async function BlogPage() {
+    const posts = await getBlogPosts()
 
     return (
         <div className="container px-4 md:px-6 py-12 md:py-24 max-w-4xl mx-auto">

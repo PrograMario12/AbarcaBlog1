@@ -31,7 +31,7 @@ vi.mock('path', async (importOriginal) => {
   }
 })
 
-vi.mock('gray-matter', async () => {
+vi.mock('gray-matter', async (importOriginal) => {
     return {
         default: vi.fn(),
     }
@@ -44,25 +44,20 @@ describe('getBlogPosts', () => {
   })
 
   it('should return empty array if blogs path does not exist', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (fs.existsSync as any).mockReturnValue(false)
     const posts = getBlogPosts()
     expect(posts).toEqual([])
   })
 
   it('should return posts sorted by date descending', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (fs.existsSync as any).mockReturnValue(true);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (path.join as any).mockImplementation((...args: any[]) => args.join('/'));
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (fs.readdirSync as any).mockReturnValue([
       'post1.mdx',
       'post2.mdx',
       'post3.mdx',
     ])
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const mockReadFileSync = fs.readFileSync as any;
     mockReadFileSync.mockImplementation((filePath: string) => {
       if (filePath.endsWith('post1.mdx')) return 'content1'
@@ -71,7 +66,6 @@ describe('getBlogPosts', () => {
       return ''
     })
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const mockMatter = matter as unknown as any;
     mockMatter.mockImplementation((content: string) => {
       if (content === 'content1') return { data: { title: 'Post 1', date: '2023-01-01', excerpt: 'Excerpt 1' }, content: 'Body 1' }

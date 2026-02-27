@@ -8,7 +8,6 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 
 export function Projects() {
-  // Use data from imported file, filter if needed (upstream logic seemed to filter featured)
   const featuredProjects = projects.filter((project) => project.featured);
 
   return (
@@ -21,8 +20,7 @@ export function Projects() {
           Una selección de trabajos reales y experimentales.
         </p>
       </div>
-      {/* Mobile-first grid: 1 col (default) -> 2 cols (md) -> 3 cols (lg) */}
-      <div className="mx-auto grid max-w-5xl gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project, i) => (
           <motion.div
             key={i}

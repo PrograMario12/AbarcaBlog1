@@ -1,5 +1,5 @@
-import fs from 'fs/promises'
-import { existsSync } from 'fs'
+import fs from 'fs'
+import { promises as fsPromises } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
@@ -77,11 +77,6 @@ export function getBlogPosts(): BlogPost[] {
                 // content is omitted/undefined here for performance
             }
         })
-        .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
-        .map((post) => {
-            const { timestamp, ...rest } = post
-            return rest
-        })
 
     return posts.sort((a, b) => (new Date(a.meta.date) < new Date(b.meta.date) ? 1 : -1))
 }
@@ -89,7 +84,7 @@ export function getBlogPosts(): BlogPost[] {
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     try {
         const fullPath = path.join(blogsPath, `${slug}.mdx`)
-        const fileContents = await fs.readFile(fullPath, 'utf8')
+        const fileContents = await fsPromises.readFile(fullPath, 'utf8')
         const { data, content } = matter(fileContents)
 
         return {

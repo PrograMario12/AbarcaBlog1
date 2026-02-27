@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Github, Globe, Stethoscope, Bird } from "lucide-react";
 import Link from "next/link";
 

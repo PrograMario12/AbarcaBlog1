@@ -4,7 +4,8 @@ import { Projects } from '@/components/projects'
 // Mock framer-motion to avoid animation issues in tests
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    div: ({ children, whileHover, initial, animate, transition, ...props }: React.ComponentProps<'div'> & { whileHover?: unknown, initial?: unknown, animate?: unknown, transition?: unknown }) => <div {...props}>{children}</div>,
   },
 }))
 
